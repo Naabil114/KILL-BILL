@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sertifikat', function (Blueprint $table) {
+        Schema::create('profil', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('deskripsi');
-            $table->string('jenis');
-            $table->text('foto');
+            $table->string('nama_profil');
+            $table->string('email')->unique();
+            $table->string('no_hp');
+            $table->string('alamat');
+            $table->string('linkedin');
+            $table->string('github');
+            $table->string('foto_profil');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sertifikat');
+        Schema::dropIfExists('profil');
     }
 };
